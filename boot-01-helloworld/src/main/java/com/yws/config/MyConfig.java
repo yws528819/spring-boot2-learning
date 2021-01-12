@@ -1,17 +1,29 @@
 package com.yws.config;
 
+import ch.qos.logback.core.db.DBHelper;
 import com.yws.bean.Pet;
 import com.yws.bean.User;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * 1.配置类使用 @Bean 标注在方法上给容器注册组件，默认也是单实例的。
  * 2.配置类本身也是组件
  * 3.proxyBeanMethods：代理bean的方法
- *      Full、Lite
+ *      Full(proxyBeanMethods = true)、
+ *      Lite(proxyBeanMethods = false)
+ *      组件依赖
+ *
+ * 4. @Import({User.class, DBHelper.class})
+ *      给容器中自动创建出两个类型的组件，默认组件的名字就是全类名
  */
-@Configuration(proxyBeanMethods = false)  //告诉SpringBoot 这是一个配置类 == 配置文件
+//@ConditionalOnBean(name = "pet01")
+@ConditionalOnMissingBean(name = "pet01")
+@Import({User.class, DBHelper.class})
+@Configuration(proxyBeanMethods = true)  //告诉SpringBoot 这是一个配置类 == 配置文件
 public class MyConfig {
 
     /**
@@ -31,7 +43,7 @@ public class MyConfig {
         return user;
     }
 
-    @Bean
+    @Bean("tom22")
     public Pet pet01() {
         return new Pet("tom");
     }
