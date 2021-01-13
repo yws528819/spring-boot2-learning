@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user02" class="com.yws.bean.User">
+        <constructor-arg name="name" value="王五"></constructor-arg>
+        <constructor-arg name="age" value="11"></constructor-arg>
+        <constructor-arg name="pet" ref="pet02"></constructor-arg>
+    </bean>
+
+    <bean id="pet02" class="com.yws.bean.Pet">
+        <property name="name" value="wangwang"></property>
+    </bean>
+</beans>

@@ -22,7 +22,7 @@ public class MainApplication {
 //        String[] beanDefinitionNames = run.getBeanDefinitionNames();
 //
 //        for(String name : beanDefinitionNames) {
-//            System.out.println(name);
+//          `  System.out.println(name);
 //        }
 //
 //        //3.从容器中获取组件
@@ -63,6 +63,11 @@ public class MainApplication {
         boolean pet01Exist = run.containsBean("tom22");
         System.out.println("容器中pet01组件是否存在：" + pet01Exist);
 
+        //6.import spring.xml
+        System.out.println("spring配置文件的bean-user02是否存在：" + run.containsBean("user02"));
+        System.out.println("spring配置文件的bean-pet02是否存在：" + run.containsBean("pet02"));
 
+//        User user02 = run.getBean("user02", User.class);
+//        System.out.println(user02);
     }
 }

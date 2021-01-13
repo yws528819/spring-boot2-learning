@@ -1,13 +1,16 @@
 package com.yws.config;
 
 import ch.qos.logback.core.db.DBHelper;
+import com.yws.bean.Car;
 import com.yws.bean.Pet;
 import com.yws.bean.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * 1.配置类使用 @Bean 标注在方法上给容器注册组件，默认也是单实例的。
@@ -20,9 +23,14 @@ import org.springframework.context.annotation.Import;
  * 4. @Import({User.class, DBHelper.class})
  *      给容器中自动创建出两个类型的组件，默认组件的名字就是全类名
  */
+@EnableConfigurationProperties(Car.class)
+//1.开启Car配置绑定功能
+//2.把Car这个组件自动注册到容器中
+
 //@ConditionalOnBean(name = "pet01")
-@ConditionalOnMissingBean(name = "pet01")
+//@ConditionalOnMissingBean(name = "pet01")
 @Import({User.class, DBHelper.class})
+@ImportResource(value = "classpath:beans.xml")
 @Configuration(proxyBeanMethods = true)  //告诉SpringBoot 这是一个配置类 == 配置文件
 public class MyConfig {
 
