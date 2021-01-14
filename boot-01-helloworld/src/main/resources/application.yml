@@ -1,0 +1,30 @@
+person:
+  username: zhangsan
+  boss: false
+  age: 18
+  birth: 1999/02/11
+  pet:
+    name: 小p
+    weight: 77.77
+#  interests:
+#    - 画画
+#    - 下棋
+  interests: [画画,下棋]
+  animal:
+    - 阿猫
+    - 阿狗
+#  score:
+#    english: 80
+#    math: 90
+  score: {english: 80, math: 90}
+  salary:
+    - 7777.11
+    - 8888.22
+  allPet:
+    sick: [{name: 阿玉, weight: 66.66},{name:阿虫, weight: 33.33}]
+    health:
+      - {name: 阿龙, weight: 100.00}
+      - name: 阿花
+        weight: 11.11
+      - name: 阿鸟
+        weight: 44.44
