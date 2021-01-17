@@ -1,6 +1,7 @@
 package com.yws;
 
 import ch.qos.logback.core.db.DBHelper;
+import com.yws.bean.Dog;
 import com.yws.bean.Pet;
 import com.yws.bean.User;
 import com.yws.config.MyConfig;
@@ -69,5 +70,8 @@ public class MainApplication {
 
 //        User user02 = run.getBean("user02", User.class);
 //        System.out.println(user02);
+        Dog dog = run.getBean("dog", Dog.class);
+        Dog dog01 = run.getBean("dog01", Dog.class);
+        System.out.println("两只狗是否是同一只：" + (dog == dog01));
     }
 }

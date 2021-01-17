@@ -2,6 +2,7 @@ package com.yws.config;
 
 import ch.qos.logback.core.db.DBHelper;
 import com.yws.bean.Car;
+import com.yws.bean.Dog;
 import com.yws.bean.Pet;
 import com.yws.bean.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -62,4 +63,16 @@ public class MyConfig {
 //        Runnable run2 = ()-> {};
 //        System.out.println(run1 == run2);
 //    }
+
+    /**
+     * 当容器中已经有组件dog，注册一个名为dog01的组件Dog，与原有组件是同一个实例，理解为对原来的组件Dog再增加一个名字
+     * @param dog
+     * @return
+     */
+    @ConditionalOnBean
+    @Bean
+    public Dog dog01(Dog dog) {
+        return dog;
+    }
+
 }
