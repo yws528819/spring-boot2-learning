@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h4>welcome! yws</h4>
+
+    <form action="/user" method="get">
+        <input type="submit" value="get请求"/>
+    </form>
+    <form action="/user" method="post">
+        <input type="submit" value="post请求"/>
+    </form>
+    <form action="/user" method="post">
+        <input type="hidden" name="_method" value="put"/>
+        <input type="submit" value="put请求"/>
+    </form>
+    <form action="/user" method="post">
+        <input type="hidden" name="_m" value="delete"/>
+        <input type="submit" value="delete请求"/>
+    </FORM>
+
+    <hr>
+
+    测试基本注解：
+    <ul>
+        <a href="/car/3/owner/lisi?age=18&&interests=basketball&&interests=game">car/{id}/owner/{username}</a>
+    </ul>
+    <form action="/save" method="post" >
+        测试@RequestBody获取数据<br>
+        <input type="text" name="username" /><br/>
+        <input type="text" name="email" /><br/>
+        <input type="submit" value="提交"/>
+    </form>
+</body>
+</html>
