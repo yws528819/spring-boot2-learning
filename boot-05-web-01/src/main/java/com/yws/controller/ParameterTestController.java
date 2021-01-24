@@ -1,5 +1,6 @@
 package com.yws.controller;
 
+import com.yws.bean.Person;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -87,5 +88,10 @@ public class ParameterTestController {
         map.put("bossId", bossId);
 
         return map;
+    }
+
+    @PostMapping("/saveuser")
+    public Person saveuser(Person person) {
+        return person;
     }
 }
