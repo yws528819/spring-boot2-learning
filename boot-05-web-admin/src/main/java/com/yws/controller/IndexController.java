@@ -1,6 +1,7 @@
 package com.yws.controller;
 
 import com.yws.bean.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -33,10 +35,13 @@ public class IndexController {
 
     @GetMapping("/main.html")
     public String main(HttpSession session, HttpServletRequest request) {
-        if (session.getAttribute("user") == null) {
-            request.setAttribute("msg", "请重新登录");
-            return "login";
-        }
+
+        log.info("当前方法是{}", "mainPage");
+
+//        if (session.getAttribute("user") == null) {
+//            request.setAttribute("msg", "请重新登录");
+//            return "login";
+//        }
         return "main";
     }
 
