@@ -9,9 +9,14 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/jdbc?serverTimezone=GMT%2B8
     username: root
     password: root
+    filters: stat,wall
+    max-active: 10
+
   jdbc:
     template:
       query-timeout: 3
+
+
 
 #  mvc:
 #    servlet:
