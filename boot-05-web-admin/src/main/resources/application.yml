@@ -9,8 +9,22 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/jdbc?serverTimezone=GMT%2B8
     username: root
     password: root
-    filters: stat,wall
-    max-active: 10
+    druid:
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: admin
+        reset-enable: false
+
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+
+  #    自定义druid
+#    filters: stat,wall
+#    max-active: 10
 
   jdbc:
     template:

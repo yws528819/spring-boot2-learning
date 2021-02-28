@@ -13,7 +13,8 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.Arrays;
 
-@Configuration
+@Deprecated
+//@Configuration
 public class MyDataSourceConifg {
 
     //默认的自动配置是判断容器中没有才会配 @ConditionalOnMissingBean(DataSource.class)
