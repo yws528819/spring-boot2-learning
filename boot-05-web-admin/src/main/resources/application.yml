@@ -56,6 +56,10 @@ spring:
 #    servlet:
 #      path: /mvc/
 
+#配置mybatis规则
 mybatis:
-  config-location: classpath:mybatis/mybatis-config.xml
-  mapper-locations: classpath:mybatis/mapper/*.xml
+#  config-location: classpath:mybatis/mybatis-config.xml #全局配置文件位置
+  mapper-locations: classpath:mybatis/mapper/*.xml #sql映射文件位置
+
+  configuration:
+    map-underscore-to-camel-case: true

@@ -1,6 +1,10 @@
 package com.yws.controller;
 
+import com.yws.bean.Account;
+import com.yws.bean.City;
 import com.yws.bean.User;
+import com.yws.service.IAccoutService;
+import com.yws.service.ICityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -10,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +26,26 @@ public class IndexController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private IAccoutService accoutService;
+
+    @Autowired
+    private ICityService cityService;
+
+    @GetMapping("/city")
+    @ResponseBody
+    public City getCityById(@RequestParam("id") Long id) {
+        return cityService.getById(id);
+    }
+
+    @GetMapping("/acct")
+    @ResponseBody
+    public Account getById(@RequestParam("id") Long id) {
+        return accoutService.getById(id);
+    }
+
+
 
     @GetMapping("/sql")
     @ResponseBody
