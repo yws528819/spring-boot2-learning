@@ -1,7 +1,10 @@
 package com.yws.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yws.bean.User;
 import com.yws.exception.UserTooManyException;
+import com.yws.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +15,9 @@ import java.util.List;
 
 @Controller
 public class TableController {
+
+    @Autowired
+    private IUserService userService;
 
     /**
      *
@@ -26,7 +32,7 @@ public class TableController {
 
 
     @GetMapping("/dynamic_table")
-    public String dynamicTable(Model model) {
+    public String dynamicTable(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model) {
 
 /*        List<User> users = Arrays.asList(
                 new User("zhangsan", "123"),
@@ -39,6 +45,14 @@ public class TableController {
         if (users.size() > 3) {
             throw new UserTooManyException();
         }*/
+
+        List<User> userList = userService.list();
+//        model.addAttribute("users", userList);
+
+        Page<User> userPage = new Page<>(pn, 2);
+        Page<User> page = userService.page(userPage, null);
+        model.addAttribute("page", page);
+
 
         return "table/dynamic_table";
     }
