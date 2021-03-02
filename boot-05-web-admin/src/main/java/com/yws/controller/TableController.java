@@ -28,7 +28,7 @@ public class TableController {
     @GetMapping("/dynamic_table")
     public String dynamicTable(Model model) {
 
-        List<User> users = Arrays.asList(
+/*        List<User> users = Arrays.asList(
                 new User("zhangsan", "123"),
                 new User("lisi", "345"),
                 new User("wangwu", "568"),
@@ -38,7 +38,7 @@ public class TableController {
 
         if (users.size() > 3) {
             throw new UserTooManyException();
-        }
+        }*/
 
         return "table/dynamic_table";
     }

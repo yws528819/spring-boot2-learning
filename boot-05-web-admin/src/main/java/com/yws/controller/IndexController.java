@@ -33,6 +33,13 @@ public class IndexController {
     @Autowired
     private ICityService cityService;
 
+    @ResponseBody
+    @PostMapping("/city")
+    public City saveCity(City city) {
+        return cityService.saveCity(city);
+    }
+
+
     @GetMapping("/city")
     @ResponseBody
     public City getCityById(@RequestParam("id") Long id) {

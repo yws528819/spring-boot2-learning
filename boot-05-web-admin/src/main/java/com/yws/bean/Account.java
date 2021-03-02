@@ -1,11 +1,12 @@
 package com.yws.bean;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.relational.core.mapping.Table;
 
-@Table("tbl_account")
+@TableName("tbl_account")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

@@ -12,7 +12,14 @@ public class CityService implements ICityService {
     @Autowired
     private CityMapper cityMapper;
 
+    @Override
     public City getById(Long id) {
         return cityMapper.getById(id);
+    }
+
+    @Override
+    public City saveCity(City city) {
+        cityMapper.insert(city);
+        return city;
     }
 }
