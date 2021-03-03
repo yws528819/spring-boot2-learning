@@ -78,7 +78,9 @@
                                         </td>
                                         <td th:text="${user.age}">Win 95+</td>
                                         <td class="center hidden-phone">[[${user.email}]]</td>
-                                        <td class="center hidden-phone">X</td>
+                                        <td>
+                                            <a class="btn btn-danger btn-sm" type="button" th:href="@{/user/delete/{id}(id=${user.id},pn=${page.current})}">删除</a>
+                                        </td>
                                     </tr>
 
                                     </tfoot>
@@ -94,7 +96,10 @@
                                         <div class="dataTables_paginate paging_bootstrap pagination">
                                             <ul>
                                                 <li class="prev disabled"><a href="#">← Previous</a></li>
-                                                <li class="active"><a href="#">1</a></li>
+                                                <li th:class="${page.current == num ? 'active' : ''}"
+                                                    th:each="num:${#numbers.sequence(1,page.pages)}">
+                                                    <a th:href="@{/dynamic_table(pn=${num})}">[[${num}]]</a>
+                                                </li>
                                                 <li class="next disabled"><a href="#">Next → </a></li>
                                             </ul>
                                         </div>
