@@ -7,6 +7,8 @@ import com.yws.service.IAccoutService;
 import com.yws.service.ICityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.http.HttpRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -32,6 +34,9 @@ public class IndexController {
 
     @Autowired
     private ICityService cityService;
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     @ResponseBody
     @PostMapping("/city")
@@ -91,6 +96,16 @@ public class IndexController {
 //            request.setAttribute("msg", "请重新登录");
 //            return "login";
 //        }
+
+
+        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+
+        String s = operations.get("/main.html");
+        String s1 = operations.get("/sql");
+
+        request.setAttribute("mainCount", s);
+        request.setAttribute("sqlCount", s1);
+
         return "main";
     }
 
