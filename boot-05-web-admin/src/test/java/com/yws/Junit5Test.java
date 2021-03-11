@@ -11,6 +11,17 @@ import static org.junit.jupiter.api.Assertions.*;
 //@SpringBootTest
 public class Junit5Test {
 
+    /**
+     * 测试前置条件（如果测试不通过，跟@Disable效果一样，测试报告会显示跳过）
+     */
+    @DisplayName("测试前置条件")
+    @Test
+    void testAssumption() {
+        Assumptions.assumeTrue(true, "结果不是true");
+        System.out.println("11111");
+    }
+
+
 
     /**
      * 断言：简单断言失败，后面的代码不会执行
