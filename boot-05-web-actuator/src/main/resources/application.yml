@@ -1,0 +1,20 @@
+# management 是所有的actuator的配置
+management:
+  endpoints:
+    enabled-by-default: true #默认开启所有监控端点
+
+    web:
+      exposure:
+        include: '*' #以web方式暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+
+
+
+
+info:
+  appName: boot-admin
+  appVersion: 1.0.0
+  mavenProjectName: @project.artifactId@
+  mavenProjectVersion: @project.modelVersion@
