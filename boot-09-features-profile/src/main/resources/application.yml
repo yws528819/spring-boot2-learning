@@ -1,3 +1,9 @@
 spring:
   profiles:
-    active: test
+    group:
+      testg[0]: test  #application-test.yml\test2.yml 分为一组testg
+      testg[1]: test2
+
+      prodg[0]: prod # application-prod.yml 分为一组 prodg
+
+    active: testg #激活哪个组，哪个组下的配置文件会生效
