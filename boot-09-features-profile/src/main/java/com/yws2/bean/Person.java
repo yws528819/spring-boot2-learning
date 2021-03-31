@@ -1,4 +1,4 @@
-package com.yws.bean;
+package com.yws2.bean;
 
 public interface Person {
 

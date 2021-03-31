@@ -1,4 +1,4 @@
-package com.yws.bean;
+package com.yws2.bean;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

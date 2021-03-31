@@ -1,4 +1,4 @@
-package com.yws;
+package com.yws2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

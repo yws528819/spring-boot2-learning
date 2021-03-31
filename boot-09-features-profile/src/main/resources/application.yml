@@ -7,3 +7,8 @@ spring:
       prodg[0]: prod # application-prod.yml 分为一组 prodg
 
     active: testg #激活哪个组，哪个组下的配置文件会生效
+
+
+p:
+  prefix: hi,
+  suffix: 早!

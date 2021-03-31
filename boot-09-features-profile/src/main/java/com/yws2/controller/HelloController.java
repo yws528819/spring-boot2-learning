@@ -1,10 +1,11 @@
-package com.yws.controller;
+package com.yws2.controller;
 
-import com.yws.bean.Person;
+import com.yws2.bean.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import service.HelloService;
 
 @RestController
 public class HelloController {
@@ -14,6 +15,9 @@ public class HelloController {
 
     @Value("${person.name:李四}")
     private String name;
+
+    @Autowired
+    private HelloService helloService;
 
 
     @Autowired
@@ -33,4 +37,11 @@ public class HelloController {
     public String msg() {
         return msg;
     }
+
+
+    @GetMapping("/hello2")
+    public String hello2() {
+        return helloService.sayHello("张三");
+    }
+
 }
