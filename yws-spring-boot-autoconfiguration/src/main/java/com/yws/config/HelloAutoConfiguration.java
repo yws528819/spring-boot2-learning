@@ -7,12 +7,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import service.HelloService;
 
-
-@ConditionalOnMissingBean(HelloService.class)
 @EnableConfigurationProperties(HelloProperties.class)
 @Configuration
 public class HelloAutoConfiguration {
 
+    @ConditionalOnMissingBean(HelloService.class)
     @Bean
     public HelloService helloService() {
         return new HelloService();
