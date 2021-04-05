@@ -1,0 +1,12 @@
+# Application Context Initializers
+org.springframework.context.ApplicationContextInitializer=\
+com.yws2.listener.MyApplicationContextInitializer
+
+
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+com.yws2.listener.MyApplicationListener
+
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+com.yws2.listener.MySpringApplicationRunListener
