@@ -1,10 +1,15 @@
 package com.yws.controller;
 
 import com.yws.bean.Person;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Date;
 
 @Controller
@@ -30,4 +35,15 @@ public class ResponseTestController {
         person.setBirth(new Date());
         return person;
     }
+
+
+    @GetMapping("/test/person2")
+    @ResponseBody
+    public Resource getPerson2() throws IOException {
+        FileSystemResource fileSystemResource = new FileSystemResource("e:/file.txt");
+        OutputStream outputStream = fileSystemResource.getOutputStream();
+        outputStream.write("person2".getBytes());
+        return fileSystemResource;
+    }
+
 }
