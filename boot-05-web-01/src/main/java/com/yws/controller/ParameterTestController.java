@@ -1,15 +1,16 @@
 package com.yws.controller;
 
 import com.yws.bean.Person;
+import com.yws.bean.V;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @RestController
 public class ParameterTestController {
+
 
     @GetMapping("/car/{id}/owner/{username}")
     public Map<String, Object> getCar(
@@ -99,5 +100,43 @@ public class ParameterTestController {
     @PostMapping("/saveuser")
     public Person saveuser(Person person) {
         return person;
+    }
+
+    /**
+     * http://localhost:8080/test1
+     *
+     * application/x-www-form-urlencoded  参数转成    v1=1&v2=2
+     * 输出 v1=1&v2=2
+     *
+     * application/json   参数转成 {"v1":"1", "v2":"2"}
+     * 输出
+     * {
+     * 	"v1" : "1",
+     * 	"v2" : "2"
+     * }
+     *
+     * @RequestBody  只要你body有啥，就转啥，前提是对的
+     *
+     * 不加@RequestBody  表单键值对才能转
+     *
+     */
+    @PostMapping("/test1")
+    public String test1(@RequestBody  String v1) {
+        return v1;
+    }
+
+    @PostMapping("/test2")
+    public String test2(String v1) {
+        return v1;
+    }
+
+    @PostMapping("/test3")
+    public String test3(@RequestBody V v) {
+        return v.toString();
+    }
+
+    @PostMapping("/test4")
+    public String test4(V v) {
+        return v.toString();
     }
 }
